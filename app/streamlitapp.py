@@ -29,7 +29,7 @@ if options:
     # Rendering the video 
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        file_path = os.path.join('..', 'data', 's1', selected_video)
+        file_path = os.path.join(data_dir, selected_video)
         output_path = os.path.join('test_video.mp4')
     
         # Convert the video using moviepy
