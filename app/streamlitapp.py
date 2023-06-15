@@ -41,7 +41,7 @@ if options:
     
         # Convert the video using moviepy
         video_clip = VideoFileClip(str(file_path))
-        video_clip.write_videofile(output_path, codec='libx264')
+        video_clip.write_videofile(str(output_path), codec='libx264')
     
         # Display the video in the app
         video = open(output_path, 'rb')
