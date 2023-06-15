@@ -1,5 +1,6 @@
 import streamlit as st
 import os 
+import pathlib
 from moviepy.editor import VideoFileClip
 import imageio
 import tensorflow as tf 
@@ -17,9 +18,10 @@ with st.sidebar:
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
-repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-data_dir = os.path.join(repo_root, 'data', 's1')
-options = os.listdir(data_dir)
+code_dir = pathlib.Path(__file__).parent.resolve()
+files_location = code_dir / ".." / "data" / "s1"  
+files_location = files_location.resolve()  
+selected_video = st.selectbox('Choose video',files_location)
 
 # Generate two columns 
 col1, col2 = st.columns(2)
@@ -29,8 +31,8 @@ if options:
     # Rendering the video 
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        file_path = os.path.join(data_dir, selected_video)
-        output_path = os.path.join('test_video.mp4')
+        file_path = files_location / selected_video
+        output_path = code_dir / 'test_video.mp4'
     
         # Convert the video using moviepy
         video_clip = VideoFileClip(file_path)
