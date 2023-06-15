@@ -2,7 +2,7 @@ gdown==4.7.1
 imageio==2.9.0
 keras>=2.10.0,<2.13.0
 matplotlib==3.7.1
-numpy==1.22.2
+numpy
 opencv-python==4.7.0.72
 Pillow==8.4.0
 streamlit== 1.22.0
