@@ -26,7 +26,7 @@ selected_video = st.selectbox('Choose video',files_location)
 # Generate two columns 
 col1, col2 = st.columns(2)
 
-if options: 
+if selected_video: 
 
     # Rendering the video 
     with col1: 
