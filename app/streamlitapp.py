@@ -40,7 +40,7 @@ if options:
         output_path = cur_dir / 'test_video.mp4'
     
         # Convert the video using moviepy
-        video_clip = VideoFileClip(file_path)
+        video_clip = VideoFileClip(str(file_path))
         video_clip.write_videofile(output_path, codec='libx264')
     
         # Display the video in the app
