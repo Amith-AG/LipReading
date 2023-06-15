@@ -1,7 +1,7 @@
 # Import all of the dependencies
 import streamlit as st
 import os 
-import imageio 
+from moviepy.editor import VideoFileClip
 import ffmpeg
 import tensorflow as tf 
 from utils import load_data, num_to_char
@@ -29,12 +29,16 @@ if options:
     # Rendering the video 
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        file_path = os.path.join('..','data','s1', selected_video)
-        os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
+        file_path = os.path.join('data', 's1', selected_video)
+        output_file_path = 'test_video.mp4'
+    
+    # Convert video format using moviepy
+        video = VideoFileClip(file_path)
+        video.write_videofile(output_file_path, codec='libx264', audio_codec='aac')
 
-        # Rendering inside of the app
-        video = open('test_video.mp4', 'rb') 
-        video_bytes = video.read() 
+    # Rendering inside the app
+        video = open(output_file_path, 'rb')
+        video_bytes = video.read()
         st.video(video_bytes)
 
 
