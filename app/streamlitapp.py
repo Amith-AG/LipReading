@@ -20,7 +20,7 @@ st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_
 # Generating a list of options or videos 
 cur_dir = pathlib.Path(__file__)
 code_dir = pathlib.Path(__file__).parent.resolve()
-files_location = code_dir / ".." / "data" / "s1"  
+files_location = code_dir/ "data" / "s1"  
 
 # Convert the files_location to a list of files
 options = os.listdir(files_location)
