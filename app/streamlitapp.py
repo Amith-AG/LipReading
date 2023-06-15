@@ -29,10 +29,12 @@ if options:
     # Rendering the video 
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        file_path = os.path.join('data/s1', selected_video)  # Adjust the path as per your directory structure
-        output_file_path = 'test_video.mp4'
-        ffmpeg.input(file_path).output(output_file_path, vcodec='mpeg4').run()
-        video_bytes = open(output_file_path, 'rb').read()
+        file_path = os.path.join('..','data','s1', selected_video)
+        os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
+
+        # Rendering inside of the app
+        video = open('test_video.mp4', 'rb') 
+        video_bytes = video.read() 
         st.video(video_bytes)
 
 
