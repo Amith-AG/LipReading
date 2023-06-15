@@ -37,7 +37,7 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = files_location / selected_video
-        output_path = str(code_dir / 'test_video.mp4')
+        output_path = code_dir / 'test_video.mp4'
     
         # Convert the video using moviepy
         video_clip = VideoFileClip(file_path)
