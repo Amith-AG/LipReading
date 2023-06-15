@@ -3,7 +3,7 @@ imageio==2.9.0
 keras>=2.10.0,<2.13.0
 matplotlib==3.7.1
 numpy>=1.21.0
-ffmpeg-python-headless
+ffmpeg-python
 opencv-python-headless
 streamlit== 1.22.0
 tensorflow==2.12.0
