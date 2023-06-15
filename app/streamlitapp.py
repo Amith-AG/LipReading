@@ -18,15 +18,19 @@ with st.sidebar:
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
-code_dir = pathlib.Path(__file__).parent.resolve()
+ccode_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".." / "data" / "s1"  
 files_location = files_location.resolve()  
-selected_video = st.selectbox('Choose video',files_location)
+
+# Convert the files_location to a list of files
+options = os.listdir(files_location)
+
+selected_video = st.selectbox('Choose video', options)
 
 # Generate two columns 
 col1, col2 = st.columns(2)
 
-if files_location: 
+if options: 
 
     # Rendering the video 
     with col1: 
