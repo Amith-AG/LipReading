@@ -17,7 +17,7 @@ with st.sidebar:
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
-options = os.listdir('data/s1')
+options = os.listdir(os.path.join('..', 'data', 's1'))
 selected_video = st.selectbox('Choose video', options)
 
 # Generate two columns 
