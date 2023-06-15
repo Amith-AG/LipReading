@@ -7,7 +7,7 @@ import tensorflow as tf
 from utils import load_data, num_to_char
 from modelutil import load_model
 
-# Set the layout to the streamlit app as wide 
+# Set the layout of the Streamlit app as wide 
 st.set_page_config(layout='wide')
 
 # Setup the sidebar
@@ -17,9 +17,11 @@ with st.sidebar:
     st.info('This project, developed by Amith A G as his MCA final project at KVVS Institute Of Technology, focuses on implementing the LipNet deep learning model for lip-reading and speech recognition. The project aims to demonstrate the capabilities of the LipNet model through a Streamlit application.')
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
+
 # Generating a list of options or videos 
-code_dir = pathlib.Path(__file__).parent
+code_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".." / "data" / "s1"  
+files_location = files_location.resolve()  
 
 # Convert the files_location to a list of files
 options = os.listdir(files_location)
@@ -35,7 +37,7 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = files_location / selected_video
-        output_path = code_dir / 'test_video.mp4'
+        output_path = str(code_dir / 'test_video.mp4')
     
         # Convert the video using moviepy
         video_clip = VideoFileClip(file_path)
