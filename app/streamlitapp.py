@@ -17,7 +17,7 @@ with st.sidebar:
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
-repo_root = os.path.dirname(os.path.abspath(__file__))
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 data_dir = os.path.join(repo_root, 'data', 's1')
 options = os.listdir(data_dir)
 
