@@ -18,10 +18,9 @@ with st.sidebar:
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
-cur_dir = pathlib.Path(__file__).resolve()
+cur_dir = pathlib.Path(__file__)
 code_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".." / "data" / "s1"  
-files_location = files_location.resolve()  
 
 # Convert the files_location to a list of files
 options = os.listdir(files_location)
@@ -40,8 +39,8 @@ if options:
         output_path = cur_dir / 'test_video.mp4'
     
         # Convert the video using moviepy
-        video_clip = VideoFileClip(str(file_path))
-        video_clip.write_videofile(str(output_path), codec='libx264')
+        video_clip = VideoFileClip(file_path)
+        video_clip.write_videofile(output_path, codec='libx264')
     
         # Display the video in the app
         video = open(output_path, 'rb')
