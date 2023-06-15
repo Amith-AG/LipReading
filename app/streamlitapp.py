@@ -18,7 +18,6 @@ with st.sidebar:
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
-cur_dir=pathlib.Path(__file__).resolve()
 code_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".." / "data" / "s1"  
 files_location = files_location.resolve()  
@@ -37,7 +36,7 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = files_location / selected_video
-        output_path = cur / 'test_video.mp4'
+        output_path = pathlib.Path('test_video.mp4')
     
         # Convert the video using moviepy
         video_clip = VideoFileClip(file_path)
