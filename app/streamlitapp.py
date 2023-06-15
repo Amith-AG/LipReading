@@ -1,8 +1,7 @@
-# Import all of the dependencies
 import streamlit as st
 import os 
-import imageio 
-import ffmpeg
+from moviepy.editor import VideoFileClip
+import imageio
 import tensorflow as tf 
 from utils import load_data, num_to_char
 from modelutil import load_model
@@ -29,14 +28,16 @@ if options:
     # Rendering the video 
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        file_path = os.path.join('..','data','s1', selected_video)
-        output_file_path = "test_video.mp4"
-
-        ffmpeg.input(file_path).output(output_file_path, vcodec='libx264').run()
-
-        # Rendering inside of the app
-        video = open(output_file_path, 'rb') 
-        video_bytes = video.read() 
+        file_path = os.path.join('..', 'data', 's1', selected_video)
+        output_path = os.path.join('test_video.mp4')
+    
+        # Convert the video using moviepy
+        video_clip = VideoFileClip(file_path)
+        video_clip.write_videofile(output_path, codec='libx264')
+    
+        # Display the video in the app
+        video = open(output_path, 'rb')
+        video_bytes = video.read()
         st.video(video_bytes)
 
 
@@ -56,4 +57,3 @@ if options:
         st.info('Decode the raw tokens into words')
         converted_prediction = tf.strings.reduce_join(num_to_char(decoder)).numpy().decode('utf-8')
         st.text(converted_prediction)
-        
