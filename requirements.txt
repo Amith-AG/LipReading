@@ -9,6 +9,6 @@ Pillow==8.4.0
 tensorflow==2.10.1
 tensorflow-estimator==2.10.0
 protobuf==3.19.6
-Python==3.10.9
+Python==3.11.3
 
 
