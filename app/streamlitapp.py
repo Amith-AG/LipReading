@@ -30,10 +30,12 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = os.path.join('..','data','s1', selected_video)
-        os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
+        output_file_path = "test_video.mp4"
+
+        ffmpeg.input(file_path).output(output_file_path, vcodec='libx264').run()
 
         # Rendering inside of the app
-        video = open('test_video.mp4', 'rb') 
+        video = open(output_file_path, 'rb') 
         video_bytes = video.read() 
         st.video(video_bytes)
 
