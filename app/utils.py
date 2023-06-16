@@ -44,5 +44,5 @@ def load_data(path: str):
     alignment_path ='/app/lipreading/data/alignments/s1/'+f'{file_name}.align'
     frames = load_video(video_path) 
     alignments = load_alignments(alignment_path)
-    path_info=f'path={path},file_name={file_name},video_path={video_path},align_path={alignments}'
+    path_info=f'path={path},file_name={file_name},video_path={video_path},align_path={alignment_path}'
     return frames,alignments,path_info
