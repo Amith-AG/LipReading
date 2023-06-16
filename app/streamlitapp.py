@@ -22,7 +22,7 @@ st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_
 code_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".." / "data" / "s1"  
 files_location = files_location.resolve()  
-st.info(code_dir)
+
 # Convert the files_location to a list of files
 options = os.listdir(files_location)
 
@@ -47,7 +47,6 @@ if options:
         video = open(output_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
-        st.info(file_path)
 
 
     with col2: 
