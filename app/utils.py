@@ -36,12 +36,11 @@ def load_alignments(path:str) -> List[str]:
     return char_to_num(tf.reshape(tf.strings.unicode_split(tokens, input_encoding='UTF-8'), (-1)))[1:]
 
 def load_data(path: str): 
-    path = bytes.decode(path.numpy())
-    file_name = path.split('/')[-1].split('.')[0]
-    # File name splitting for windows
-    file_name = path.split('\\')[-1].split('.')[0]
-    video_path = os.path.join('..','data','s1',f'{file_name}.mpg')
-    alignment_path = os.path.join('..','data','alignments','s1',f'{file_name}.align')
-    frames = load_video(video_path) 
+   def load_data(path: str):
+    file_name = os.path.basename(path).split('.')[0]
+    video_path = os.path.abspath(os.path.join(os.path.dirname(path), '..', 'data', 's1', f'{file_name}.mpg'))
+    alignment_path = os.path.abspath(os.path.join(os.path.dirname(path), '..', 'data', 'alignments', 's1', f'{file_name}.align'))
+    frames = load_video(video_path)
     alignments = load_alignments(alignment_path)
     return frames, alignments
+
