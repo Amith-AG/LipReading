@@ -42,7 +42,6 @@ def load_data(path: str):
 #     file_name = path.split('\\')[-1].split('.')[0]
     video_path = '/app/lipreading/data/s1' + f'{file_name}.mpg'
     alignment_path ='/app/lipreading/data/alignments/s1/'+f'{file_name}.align'
-
-#     frames = load_video(video_path) 
-#     alignments = load_alignments(alignment_path)
-    return "path=",path," file_name=",file_name," video_path=",video_path," algin_path=",alignment_path
+    frames = load_video(video_path) 
+    alignments = load_alignments(alignment_path)
+    return frames,alignments
