@@ -22,7 +22,8 @@ def load_video(path:str) -> List[float]:
     
     mean = tf.math.reduce_mean(frames)
     std = tf.math.reduce_std(tf.cast(frames, tf.float32))
-    return tf.cast((frames - mean), tf.float32) / std
+    return frames
+# tf.cast((frames - mean), tf.float32) / std
     
 def load_alignments(path:str) -> List[str]: 
     #print(path)
