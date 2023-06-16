@@ -44,7 +44,7 @@ def load_data(path: str):
     # print("filename=",file_name)
     video_path = '/app/lipreading/data/s1/' + f'{file_name}.mpg'
     # print("vid_path",video_path)
-    alignment_path ='/app/LipReading/data/alignments/s1/'+f'{file_name}.align'
+    alignment_path ='/app/lipreading/data/alignments/s1/'+f'{file_name}.align'
     # print("align_path",alignment_path)
     frames = load_video(video_path) 
     alignments = load_alignments(alignment_path)
