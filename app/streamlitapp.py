@@ -47,6 +47,7 @@ if options:
         video = open(output_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
+        st.info(file_path)
 
 
     with col2: 
