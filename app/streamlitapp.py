@@ -47,14 +47,14 @@ if options:
         video = open(output_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
-        st.info(file_path)
 
 
     with col2: 
         st.info('This is all the machine learning model sees when making a prediction')
-        video, annotations= load_data(tf.convert_to_tensor(file_path))
+        video, annotations = load_data(tf.convert_to_tensor(file_path))
         imageio.mimsave('animation.gif', video, fps=10)
         st.image('animation.gif', width=400) 
+
         st.info('This is the output of the machine learning model as tokens')
         model = load_model()
         yhat = model.predict(tf.expand_dims(video, axis=0))
