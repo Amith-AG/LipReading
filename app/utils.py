@@ -1,6 +1,3 @@
-Certainly! Here's the full code with the necessary modifications:
-
-```python
 import tensorflow as tf
 from typing import List
 import cv2
@@ -43,4 +40,3 @@ def load_data(path: str):
     frames = load_video(video_path)
     alignments = load_alignments(alignment_path)
     return frames, alignments
-
