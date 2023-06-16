@@ -1,3 +1,6 @@
+Certainly! Here's the full code with the necessary modifications:
+
+```python
 import tensorflow as tf
 from typing import List
 import cv2
@@ -11,7 +14,6 @@ num_to_char = tf.keras.layers.StringLookup(
 )
 
 def load_video(path: str) -> List[float]:
-    #print(path)
     cap = cv2.VideoCapture(path)
     frames = []
     for _ in range(int(cap.get(cv2.CAP_PROP_FRAME_COUNT))):
@@ -25,7 +27,6 @@ def load_video(path: str) -> List[float]:
     return tf.cast((frames - mean), tf.float32) / std
 
 def load_alignments(path: str) -> List[str]:
-    #print(path)
     with open(path, 'r') as f:
         lines = f.readlines()
     tokens = []
@@ -42,3 +43,4 @@ def load_data(path: str):
     frames = load_video(video_path)
     alignments = load_alignments(alignment_path)
     return frames, alignments
+
