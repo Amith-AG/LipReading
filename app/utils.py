@@ -37,7 +37,6 @@ def load_alignments(path:str) -> List[str]:
 
 def load_data(path: str): 
     path = bytes.decode(path.numpy())
-    file_name = os.path.splitext(os.path.basename(path))[0]
     # File name splitting for windows
     file_name = path.split('/')[-1].split('.')[0]
     video_path = '/app/lipreading/data/s1' + f'{file_name}.mpg'
