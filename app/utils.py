@@ -17,15 +17,12 @@ def load_video(path:str) -> List[float]:
     for _ in range(int(cap.get(cv2.CAP_PROP_FRAME_COUNT))): 
         ret, frame = cap.read()
         frame = tf.image.rgb_to_grayscale(frame)
-        frames.append(frame)
-#         frames.append(frame[190:236,80:220,:])
+        frames.append(frame[190:236,80:220,:])
     cap.release()
     
     mean = tf.math.reduce_mean(frames)
     std = tf.math.reduce_std(tf.cast(frames, tf.float32))
-    return frames
-# tf.cast((frames - mean), tf.float32) / std
-
+    return tf.cast((frames - mean), tf.float32) / std
     
 def load_alignments(path:str) -> List[str]: 
     #print(path)
