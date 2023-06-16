@@ -37,11 +37,15 @@ def load_alignments(path:str) -> List[str]:
 
 def load_data(path: str): 
     path = bytes.decode(path.numpy())
+    # print("path=",path)
     file_name = path.split('/')[-1].split('.')[0]
     # File name splitting for windows
     file_name = path.split('\\')[-1].split('.')[0]
-    video_path = os.path.join('..','data','s1',f'{file_name}.mpg')
-    alignment_path = os.path.join('..','data','alignments','s1',f'{file_name}.align')
+    # print("filename=",file_name)
+    video_path = 'D:\\Lip\\data\\s1\\' + f'{file_name}.mpg'
+    # print("vid_path",video_path)
+    alignment_path ='D:\\Lip\\data\\alignments\\s1\\'+f'{file_name}.align'
+    # print("align_path",alignment_path)
     frames = load_video(video_path) 
     alignments = load_alignments(alignment_path)
     return frames, alignments
