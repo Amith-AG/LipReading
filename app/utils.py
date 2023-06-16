@@ -42,9 +42,9 @@ def load_data(path: str):
     # File name splitting for windows
     file_name = path.split('\\')[-1].split('.')[0]
     # print("filename=",file_name)
-    video_path = '/app/lipreading/data/s1/' + f'{file_name}.mpg'
-    # print("vid_path",video_path)
-    alignment_path ='/app/lipreading/data/alignments/s1/'+f'{file_name}.align'
+    video_path = 'data/s1/' + f'{file_name}.mpg'
+    alignment_path = 'data/alignments/s1/' + f'{file_name}.align'
+
     # print("align_path",alignment_path)
     frames = load_video(video_path) 
     alignments = load_alignments(alignment_path)
