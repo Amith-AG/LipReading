@@ -54,7 +54,7 @@ if options:
         video, annotations,path = load_data(tf.convert_to_tensor(file_path))
         st.info(video)
         st.info(annotations)
-        st.info(path)
+#         st.info(path)
 #         imageio.mimsave('animation.gif', video, fps=10)
 #         st.image('animation.gif', width=400) 
 
