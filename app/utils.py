@@ -25,7 +25,7 @@ def load_video(path:str) -> List[float]:
     return tf.cast((frames - mean), tf.float32) / std
     
 def load_alignments(path:str) -> List[str]: 
-    print(path)
+    #print(path)
     with open(path, 'r') as f: 
         lines = f.readlines() 
     tokens = []
