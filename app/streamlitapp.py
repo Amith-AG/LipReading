@@ -36,8 +36,8 @@ if options:
     # Rendering the video 
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        file_path = files_location / selected_video.resolve()
-        output_path = code_dir / 'test_video.mp4'.resolve()
+        file_path = str(files_location / selected_video).as_posix()
+        output_path = str(code_dir / 'test_video.mp4').as_posix()
     
         # Convert the video using moviepy
         video_clip = VideoFileClip(file_path)
