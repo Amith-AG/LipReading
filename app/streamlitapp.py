@@ -16,7 +16,7 @@ with st.sidebar:
     st.markdown("<h1 style='text-align: center;'>Abstract</h1>", unsafe_allow_html=True) 
     st.info('This project, developed by Amith A G as his MCA final project at KVVS Institute Of Technology, focuses on implementing the LipNet deep learning model for lip-reading and speech recognition. The project aims to demonstrate the capabilities of the LipNet model through a Streamlit application.')
 
-st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
+st.markdown("<h1 style='text-align: center;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
 code_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".." / "data" / "s1"  
