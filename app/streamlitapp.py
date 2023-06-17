@@ -13,7 +13,7 @@ st.set_page_config(layout='wide')
 # Setup the sidebar
 with st.sidebar: 
     st.image('https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png')
-    st.markdown("<h1 style='text-align: center; color: white;'>Abstract</h1>", unsafe_allow_html=True) 
+    st.markdown("<h1 style='text-align: center;'>Abstract</h1>", unsafe_allow_html=True) 
     st.info('This project, developed by Amith A G as his MCA final project at KVVS Institute Of Technology, focuses on implementing the LipNet deep learning model for lip-reading and speech recognition. The project aims to demonstrate the capabilities of the LipNet model through a Streamlit application.')
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
