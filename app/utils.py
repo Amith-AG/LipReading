@@ -39,10 +39,9 @@ def load_data(path: str):
     path = bytes.decode(path.numpy())
     file_name = path.split('/')[-1].split('.')[0]
     # File name splitting for windows
-#     file_name = path.split('\\')[-1].split('.')[0]
-    video_path = '/app/lipreading/data/s1' + f'{file_name}.mpg'
-    alignment_path ='/app/lipreading/data/alignments/s1/'+f'{file_name}.align'
+    file_name = path.split('\\')[-1].split('.')[0]
+    video_path = os.path.join('..','data','s1',f'{file_name}.mpg')
+    alignment_path = os.path.join('..','data','alignments','s1',f'{file_name}.align')
     frames = load_video(video_path) 
     alignments = load_alignments(alignment_path)
-#     path_info=f'path={path},file_name={file_name},video_path={video_path},align_path={alignment_path}'
-    return frames,alignments
+    return frames, alignments
