@@ -1,10 +1,10 @@
 import os 
 from tensorflow.keras.models import Sequential 
 from tensorflow.keras.layers import Conv3D, LSTM, Dense, Dropout, Bidirectional, MaxPool3D, Activation, Reshape, SpatialDropout3D, BatchNormalization, TimeDistributed, Flatten
-from pathlib import Path
+import pathlib
 
 
-code_dir=pathlib.path(__file__).parent.resolve()
+code_dir = pathlib.Path(__file__).parent.resolve()
 model_location=code_dir/'..'/'models'/'checkpoint'
 model_location=str(model_loaction.resolve())
 
