@@ -6,7 +6,7 @@ import pathlib
 
 code_dir = pathlib.Path(__file__).parent.resolve()
 model_location=code_dir/'..'/'models'/'checkpoint'
-model_location=str(model_loaction.resolve())
+model_location=str(model_location.resolve())
 
 def load_model() -> Sequential: 
     model = Sequential()
