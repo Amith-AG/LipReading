@@ -2,7 +2,7 @@
 import streamlit as st
 import os 
 import imageio 
-
+import pathlib
 import tensorflow as tf 
 from utils import load_data, num_to_char
 from modelutil import load_model
@@ -18,7 +18,13 @@ with st.sidebar:
 
 st.markdown("<h1 style='text-align: center; color: white;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
-options = os.listdir(os.path.join('..', 'data', 's1'))
+code_dir = pathlib.Path(__file__).parent.resolve()
+files_location = code_dir / ".." / "data" / "s1"  
+files_location = files_location.resolve()  
+
+# Convert the files_location to a list of files
+options = os.listdir(files_location)
+
 selected_video = st.selectbox('Choose video', options)
 
 # Generate two columns 
@@ -29,7 +35,7 @@ if options:
     # Rendering the video 
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        file_path = os.path.join('..','data','s1', selected_video)
+        file_path = str(files_location / selected_video)
         os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
 
         # Rendering inside of the app
