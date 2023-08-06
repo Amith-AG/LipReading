@@ -19,10 +19,8 @@ with st.sidebar:
 st.markdown("<h1 style='text-align: center;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
 code_dir = pathlib.Path(__file__).parent.resolve()
-st.info(code_dir)
 files_location = code_dir / ".." / "data" / "s1"  
 files_location = files_location.resolve()  
-st.info(files_location)
 
 # Convert the files_location to a list of files
 options = os.listdir(files_location)
@@ -48,7 +46,6 @@ if options:
 
     with col2: 
         st.info('This is all the machine learning model sees when making a prediction')
-        st.info(file_path)
         video,annotations= load_data(tf.convert_to_tensor(file_path))
         imageio.mimsave('animation.gif', video, fps=10)
         st.image('animation.gif', width=400) 
