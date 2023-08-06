@@ -19,6 +19,7 @@ with st.sidebar:
 st.markdown("<h1 style='text-align: center;'>LipNet</h1>", unsafe_allow_html=True) 
 # Generating a list of options or videos 
 code_dir = pathlib.Path(__file__).parent.resolve()
+st.info(code_dir)
 files_location = code_dir / ".." / "data" / "s1"  
 files_location = files_location.resolve()  
 st.info(files_location)
