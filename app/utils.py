@@ -40,8 +40,8 @@ def load_data(path: str):
     file_name = path.split('/')[-1].split('.')[0]
     # File name splitting for windows
     # file_name = path.split('\\')[-1].split('.')[0]
-    video_path = os.path.join('/app','lipreading','data','s1',f'{file_name}.mpg')
-    alignment_path = os.path.join('/app','lipreading','data','alignments','s1',f'{file_name}.align')
+    video_path = os.path.join('/mount','src','lipreading','data','s1',f'{file_name}.mpg')
+    alignment_path = os.path.join('/mount','src','lipreading','data','alignments','s1',f'{file_name}.align')
     frames = load_video(video_path) 
     alignments = load_alignments(alignment_path)
     return frames,alignments
